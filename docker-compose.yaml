@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   coordinator:
     image: trinodb/trino:463

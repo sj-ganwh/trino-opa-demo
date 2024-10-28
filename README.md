@@ -4,21 +4,17 @@ Ref: https://www.linkedin.com/pulse/enhancing-security-observability-trino-open-
 
 ## Quickstart
 
-### Service Up
-
 ```sh
-make run
-```
+# Start
+make start
 
-### Tests
-
-```sh
+# Tests
 make test-allow
 make test-disallow
-```
 
-### Clean Up
+# Restart
+make restart
 
-```sh
+# Clean Up
 make clean
 ```

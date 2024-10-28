@@ -1,5 +1,7 @@
-run:
+start:
 	docker compose up -d
+restart:
+	docker compose restart
 test-allow:
 	docker compose exec coordinator trino --debug --user=admin --output-format=MARKDOWN --execute "show catalogs"
 test-disallow:
