@@ -1,0 +1,44 @@
+{
+  "tables": [
+    {
+      "user": "admin",
+      "privileges": ["SELECT", "INSERT", "DELETE", "UPDATE", "OWNERSHIP"]
+    },
+    {
+      "user": "banned_user",
+      "privileges": []
+    },
+    {
+      "catalog": "tpch",
+      "table": "customer",
+      "privileges": ["SELECT"],
+      "filter": "name = current_user",
+      "columns" : [
+          {
+            "name": "address",
+            "allow": false
+          },
+          {
+            "name": "phone",
+            "mask": "cast(concat('XXX-XX-', substring(phone, -4)) as varchar(15))",
+            "mask_environment": {
+              "user": "system_user"
+            }
+          }
+      ]
+    },
+    {
+      "catalog": "tpch",
+      "privileges": ["SELECT"],
+      "columns" : [
+          {
+            "name": "comment",
+            "mask": "cast(substring(comment, 1, 30) || ' …………' as varchar(79))",
+            "mask_environment": {
+              "user": "system_user"
+            }
+          }
+      ]
+    }
+  ]
+}
