@@ -1,13 +1,24 @@
 # trino-opa-demo
 
-## quickstart
+Ref: https://www.linkedin.com/pulse/enhancing-security-observability-trino-open-policy-agent-isa-inalcik-zhl9e
+
+## Quickstart
 
 ### Service Up
 
 ```sh
-# opa
-docker run -d --name opa -p 8181:8181 openpolicyagent/opa:0.69.0 run --server --addr :8181
+make run
+```
 
-# trino
-docker run -d --name trino -v $(pwd)/trino:/etc/trino --network host trinodb/trino:463
+### Tests
+
+```sh
+make test-allow
+make test-disallow
+```
+
+### Clean Up
+
+```sh
+make clean
 ```
